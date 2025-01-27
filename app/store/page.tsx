@@ -1,5 +1,5 @@
 import React from 'react'
-import Stores from '../components/pages/Stores'
+import Stores from '../../components/pages/Stores'
 
 const StorePage = () => {
   return (

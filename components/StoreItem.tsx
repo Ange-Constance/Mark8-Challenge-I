@@ -1,5 +1,5 @@
 import React from 'react'
-import { AiOutlineCompass, AiOutlineDown } from 'react-icons/ai'
+import { AiOutlineCompass} from 'react-icons/ai'
 import { FaPhone, FaRegHeart, FaUser } from 'react-icons/fa'
 import { MdStarHalf } from 'react-icons/md'
 import SingleProductItem from './SingleProductItem'

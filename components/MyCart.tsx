@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { FC, useState } from 'react';
 import { X, Heart, Trash, Minus, Plus, Info } from 'lucide-react';
 
@@ -17,32 +17,37 @@ const MyCart: FC = () => {
       name: 'Product 1',
       price: 9000,
       quantity: 2,
-      image: '/placeholder.jpg'
+      image: '/placeholder.jpg',
     },
     {
       id: 2,
-      name: 'Product 1',
-      price: 9000,
-      quantity: 2,
-      image: '/placeholder.jpg'
-    }
+      name: 'Product 2',
+      price: 12000,
+      quantity: 1,
+      image: '/placeholder.jpg',
+    },
   ]);
 
   const updateQuantity = (id: number, increment: boolean) => {
-    setProducts(products.map(product => {
-      if (product.id === id) {
-        const newQuantity = increment ? product.quantity + 1 : Math.max(1, product.quantity - 1);
-        return { ...product, quantity: newQuantity };
-      }
-      return product;
-    }));
+    setProducts((prevProducts) =>
+      prevProducts.map((product) =>
+        product.id === id
+          ? {
+              ...product,
+              quantity: increment
+                ? product.quantity + 1
+                : Math.max(1, product.quantity - 1),
+            }
+          : product
+      )
+    );
   };
 
   const removeProduct = (id: number) => {
-    setProducts(products.filter(product => product.id !== id));
+    setProducts((prevProducts) => prevProducts.filter((product) => product.id !== id));
   };
 
-  const totalAmount = products.reduce((sum, product) => sum + (product.price * product.quantity), 0);
+  const totalAmount = products.reduce((sum, product) => sum + product.price * product.quantity, 0);
 
   return (
     <div className="max-w-2xl mx-auto p-4 bg-white">
@@ -68,7 +73,7 @@ const MyCart: FC = () => {
       {/* Info banner */}
       <div className="flex items-center gap-2 bg-gray-50 p-3 rounded-lg mb-4">
         <Info className="w-5 h-5 text-gray-600" />
-        <p className="text-sm text-gray-600">By proceeding you won't be charged yet</p>
+        <p className="text-sm text-gray-600">By proceeding you won&#39;t be charged yet</p>
       </div>
 
       {/* Product list */}
@@ -77,10 +82,14 @@ const MyCart: FC = () => {
           <div key={product.id} className="flex items-center justify-between p-4 border rounded-lg">
             <div className="flex items-center gap-4">
               <span className="text-gray-500">{index + 1}</span>
-              <div className="w-16 h-16 bg-gray-100 rounded-lg"></div>
+              <img
+                src={product.image}
+                alt={`Image of ${product.name}`}
+                className="w-16 h-16 bg-gray-100 rounded-lg object-cover"
+              />
               <div>
                 <h3 className="font-medium">{product.name}</h3>
-                <p className="text-gray-600">{product.price} Rwf</p>
+                <p className="text-gray-600">{product.price.toLocaleString()} Rwf</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
