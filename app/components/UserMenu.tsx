@@ -1,9 +1,18 @@
+'use client'
 import Link from "next/link";
 import { FaRegHeart } from "react-icons/fa";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { AiFillShop, AiOutlineUser, AiOutlineDown } from "react-icons/ai";
+import { useState } from "react";
+import Profile from "./Profile";
 
 const UserMenu: React.FC = () => {
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+  const togglePopup = () => {
+    setIsPopupVisible(!isPopupVisible);
+  };
+
   return (
     <div className="flex items-center gap-4">
       {/* Saved Link */}
@@ -25,9 +34,9 @@ const UserMenu: React.FC = () => {
       </button>
 
       {/* User Info Section */}
-      <div className="flex items-center border border-gray-300 rounded-lg   ">
+      <div className="flex items-center border border-gray-300 rounded-lg">
         {/* User Icon */}
-        <div className="flex items-center justify-center p-3 ">
+        <div className="flex items-center justify-center p-3">
           <AiOutlineUser size={24} className="text-gray-600" />
         </div>
 
@@ -35,10 +44,22 @@ const UserMenu: React.FC = () => {
         <div className="w-px bg-gray-300 h-6"></div>
 
         {/* Dropdown Icon */}
-        <div className="flex items-center justify-center p-3 ">
+        <button
+          onClick={togglePopup}
+          className="flex items-center justify-center p-3"
+        >
           <AiOutlineDown size={24} className="text-gray-600" />
-        </div>
+        </button>
       </div>
+
+      {/* Popup Content */}
+      {isPopupVisible && (
+        <div className="absolute top-14 right-0 bg-white rounded-2xl shadow-lg  border-gray-300  z-50">
+
+
+        <Profile/>
+        </div>
+      )}
     </div>
   );
 };
