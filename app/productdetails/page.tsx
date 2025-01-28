@@ -1,10 +1,8 @@
-import React from 'react'
-import ProductDetailsPage from '../../components/pages/ProductDetailsPage'
-
+import ProductDetailsPage from "@/components/pages/ProductDetailsPage";
 const ProdDetailPage = () => {
-  return (
-    <ProductDetailsPage/>
-  )
+   return  (  <ProductDetailsPage/>)
+  ;
+  
 }
 
 export default ProdDetailPage
