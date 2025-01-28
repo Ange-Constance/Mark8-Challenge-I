@@ -3,6 +3,36 @@ import ProductCard from '../ProductCard'
 import { OpenStore } from '../OpenStore'
 
 const Saved = () => {
+
+  const products = [
+    {
+      id: 1,
+      name: 'Product 1',
+      price: 9000,
+      oldPrice: 12000,
+      imageUrl: '/product-bg.png',
+    },
+    {
+      id: 2,
+      name: 'Product 2',
+      price: 15000,
+      oldPrice: 18000,
+      imageUrl: '/product-bg.png',
+    },
+    {
+      id: 3,
+      name: 'Product 3',
+      price: 10000,
+      imageUrl: '/product-bg.png', // No oldPrice
+    },
+    {
+      id: 4,
+      name: 'Product 4',
+      price: 10000,
+      imageUrl: '/product-bg.png', // No oldPrice
+    }
+  ];
+
   return (
     
 
@@ -24,17 +54,29 @@ const Saved = () => {
     <div className='flex flex-col gap-10 mb-20'>
 
       <div className='flex flex-row justify-between'>
-        <ProductCard/>
-        <ProductCard/>
-        <ProductCard/>
-        <ProductCard/>
+        {products.map((products) => (
+        <ProductCard
+          key={products.id}
+          id={products.id}
+          name={products.name}
+          price={products.price}
+          oldPrice={products.oldPrice}
+          imageUrl={products.imageUrl}
+        />
+      ))}
       </div>
 
       <div className='flex flex-row justify-between'>
-      <ProductCard/>
-      <ProductCard/>
-      <ProductCard/>
-      <ProductCard/>
+      {products.map((products) => (
+        <ProductCard
+          key={products.id}
+          id={products.id}
+          name={products.name}
+          price={products.price}
+          oldPrice={products.oldPrice}
+          imageUrl={products.imageUrl}
+        />
+      ))}
       </div>
 
       </div>

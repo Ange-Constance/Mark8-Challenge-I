@@ -8,8 +8,8 @@ import Link from 'next/link';
 interface ProductCardProps {
   id: number;
   name: string;
-  price: number;
-  oldPrice?: number;
+  price?: number | null; // Optional and can be null
+  oldPrice?: number | null; // Optional and can be null
   imageUrl: string;
 }
 
@@ -22,7 +22,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, name, price, oldPrice, im
 
   return (
     <div className="flex justify-center items-center">
-      <Link href={`/productdetails`} passHref>
+      <Link href={`/product/${id}`} passHref>
           <div className="bg-white rounded-2xl shadow-md overflow-hidden w-[310px] h-[344px] cursor-pointer">
             {/* Dynamic Product Image */}
             <div
@@ -37,8 +37,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, name, price, oldPrice, im
               <div className="flex flex-row justify-between items-center">
                 {/* Dynamic Price */}
                 <div className="flex items-center gap-2">
-                  <p className="text-[#A4C400] text-[16px] font-semibold">{price.toLocaleString()} Rwf</p>
-                  {oldPrice && (
+                  <p className="text-[#A4C400] text-[16px] font-semibold">
+                    {typeof price === 'number' ? `${price.toLocaleString()} Rwf` : 'N/A'}
+                  </p>
+                  {typeof oldPrice === 'number' && (
                     <p className="text-gray-400 line-through text-[14px]">
                       {oldPrice.toLocaleString()} Rwf
                     </p>
@@ -68,6 +70,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, name, price, oldPrice, im
               </div>
             </div>
           </div>
+        
       </Link>
     </div>
   );

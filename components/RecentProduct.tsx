@@ -10,6 +10,30 @@ import {  AiOutlineDown} from "react-icons/ai";
 import { OpenStore } from "./OpenStore";
 
 const RecentProduct: React.FC = () => {
+
+  const products = [
+    {
+      id: 1,
+      name: 'Product 1',
+      price: 9000,
+      oldPrice: 12000,
+      imageUrl: '/product-bg.png',
+    },
+    {
+      id: 2,
+      name: 'Product 2',
+      price: 15000,
+      oldPrice: 18000,
+      imageUrl: '/product-bg.png',
+    },
+    {
+      id: 3,
+      name: 'Product 3',
+      price: 10000,
+      imageUrl: '/product-bg.png', // No oldPrice
+    }
+  ];
+
   return (
 
 <div className="mx-20 ">
@@ -41,15 +65,29 @@ const RecentProduct: React.FC = () => {
     {/* Left cards */}
     <div className="flex flex-col items-center gap-6">
 <div className="flex flex-row gap-6">
-<ProductCard/>    
-<ProductCard/>    
-<ProductCard/>    
+{products.map((products) => (
+        <ProductCard
+          key={products.id}
+          id={products.id}
+          name={products.name}
+          price={products.price}
+          oldPrice={products.oldPrice}
+          imageUrl={products.imageUrl}
+        />
+      ))} 
 </div>
 
 <div className="flex flex-row gap-6">
-<ProductCard/>    
-<ProductCard/>    
-<ProductCard/>    
+{products.map((products) => (
+        <ProductCard
+          key={products.id}
+          id={products.id}
+          name={products.name}
+          price={products.price}
+          oldPrice={products.oldPrice}
+          imageUrl={products.imageUrl}
+        />
+      ))}    
 </div>
 
 <div className="">
