@@ -22,6 +22,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, name, price, oldPrice, im
 
   return (
     <div className="flex justify-center items-center">
+      {/* added temporary link to test */}
       <Link href={`/productdetails`} passHref>
           <div className="bg-white rounded-2xl shadow-md overflow-hidden w-[310px] h-[344px] cursor-pointer">
             {/* Dynamic Product Image */}
