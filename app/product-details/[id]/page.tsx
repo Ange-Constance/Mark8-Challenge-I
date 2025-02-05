@@ -1,8 +1,6 @@
 import ProductDetailsPage from "@/components/pages/ProductDetailsPage";
 const ProdDetailPage = () => {
-   return  (  <ProductDetailsPage/>)
-  ;
-  
-}
+  return <ProductDetailsPage />;
+};
 
-export default ProdDetailPage
+export default ProdDetailPage;

@@ -1,11 +1,10 @@
-'use client';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { FiSettings } from 'react-icons/fi';
-
+"use client";
+import { AiOutlineSearch } from "react-icons/ai";
+import { FiSettings } from "react-icons/fi";
 
 const WelcomeComponent = () => {
   return (
-    <div className="flex flex-col items-center justify-center  bg-[#1C1F26] text-white p-10 rounded-2xl w-[1,568px] h-[262px] mx-20 mt[108px] mb-10">
+    <div className="flex flex-col items-center justify-center  bg-[#1C1F26] text-white p-10 rounded-2xl max-w-full h-[262px] mx-20  mt[108px] mb-10">
       {/* Welcome Section */}
       <div className="text-center mb-8">
         <h1 className="text-2xl font-bold">
@@ -22,7 +21,10 @@ const WelcomeComponent = () => {
           placeholder="What are you looking for?"
           className="bg-transparent focus:outline-none flex-1 text-white placeholder-gray-500"
         />
-        <FiSettings size={20} className="text-gray-400 cursor-pointer hover:text-white ml-2" />
+        <FiSettings
+          size={20}
+          className="text-gray-400 cursor-pointer hover:text-white ml-2"
+        />
       </div>
 
       {/* Category Filters */}

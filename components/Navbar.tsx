@@ -5,11 +5,11 @@ import UserMenu from "./UserMenu";
 
 const Navbar: React.FC = () => {
   return (
-    <header className=" bg-white text-[#0C0F0F]   px-20 py-[10px] shadow-sm border-b-2 border-gray-100 ">
-      <div className=" flex items-center justify-between container  ">
+    <header className=" bg-white text-[#0C0F0F] px-20 py-[10px] shadow-sm border-b-2 border-gray-100 ">
+      <div className="  flex flex-row items-center justify-between  ">
         {/* Left: Logo */}
         <Logo />
-        <Menu/>
+        <Menu />
         {/* Center: Search Bar */}
         <SearchBar />
 
