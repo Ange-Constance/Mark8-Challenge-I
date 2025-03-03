@@ -8,11 +8,7 @@ const authEndpoints = baseApi.injectEndpoints({
             query: () => ({
                 url: "/products"}),
           }),
-          getTopStores: builder.query<any[], void>({
-            query: () => ({
-                url: "/stores"
-            }),
-          }),
+
     })
 })
 

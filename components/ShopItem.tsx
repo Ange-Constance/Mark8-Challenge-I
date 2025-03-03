@@ -3,7 +3,7 @@ import { AiOutlineRight } from "react-icons/ai";
 interface Shop {
   image?: string;
   name: string;
-  productCount: number;
+  address: string;
 }
 
 interface ShopItemProps {
@@ -21,7 +21,7 @@ const ShopItem: React.FC<ShopItemProps> = ({ shop }) => {
         />
         <div>
           <h1 className="text-[14px] font-semibold mb-2">{shop.name}</h1>
-          <p className="text-[12px]">{shop.productCount} Products</p>
+          <p className="text-[12px]">{shop.address} </p>
         </div>
       </div>
       <button>

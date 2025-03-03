@@ -24,6 +24,16 @@ export interface Product {
    
   }
 
+  export interface ShopsResponse{
+    stores: Shop[];
+  }
+
+  export interface Shop {
+    id: string;
+    image?: string;
+    name: string;
+    address: string;
+  }
   export interface GenericResponse<T>{
     data:T
     status: number

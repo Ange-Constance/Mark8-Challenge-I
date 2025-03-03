@@ -2,7 +2,6 @@ import React from "react";
 import { AiOutlineCompass } from "react-icons/ai";
 import { FaPhone, FaRegHeart, FaUser } from "react-icons/fa";
 import { MdStarHalf } from "react-icons/md";
-import SingleProductItem from "./SingleProductItem";
 
 const StoreItem = () => {
   return (
@@ -102,9 +101,9 @@ const StoreItem = () => {
         </div>
 
         <div className="flex flex-row gap-5 w-2/4">
-          <SingleProductItem />
-          <SingleProductItem />
-          <SingleProductItem />
+          {/* <SingleProductItem />
+          <SingleProductItem product={undefined} />
+          <SingleProductItem /> */}
         </div>
       </div>
     </div>
