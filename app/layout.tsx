@@ -16,9 +16,9 @@ export default function RootLayout({
     <GlobalHolder>
       <html lang="en">
         <body>
-          {/* <Navbar /> */}
+          <Navbar />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </body>
       </html>
     </GlobalHolder>

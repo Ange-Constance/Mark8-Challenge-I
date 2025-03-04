@@ -1,6 +1,6 @@
 // RecentProduct.tsx
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import ProductCard from "./ProductCard";
 import StoreCard from "./ShopItem";
 import { useGetRecentProductsQuery } from "@/store/endpoints/product-endpoints";
@@ -9,6 +9,7 @@ import { HiOutlineFilter, HiAdjustments } from "react-icons/hi";
 import { FaRegUser, FaStore, FaSearch } from "react-icons/fa";
 import { AiOutlineDown } from "react-icons/ai";
 import { FiEdit2 } from "react-icons/fi";
+import { OpenStore } from "./OpenStore";
 
 const RecentProduct = () => {
   const {
@@ -23,6 +24,18 @@ const RecentProduct = () => {
     isError: isStoreError,
     error: storeError,
   } = useGetTopStoresQuery();
+
+  const [savedProducts, setSavedProducts] = useState<any[]>([]);
+
+  const handleSaveProduct = (product: any) => {
+    setSavedProducts((prev) => {
+      if (!product.id) return prev;
+      if (prev.find((p) => p.id === product.id)) {
+        return prev.filter((p) => p.id !== product.id);
+      }
+      return [...prev, product];
+    });
+  };
 
   console.log("Store Data:", storeData);
 
@@ -62,7 +75,11 @@ const RecentProduct = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mb-10">
             {products.length > 0 ? (
               products.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onSave={handleSaveProduct}
+                />
               ))
             ) : (
               <p>No recent products available.</p>
@@ -108,6 +125,7 @@ const RecentProduct = () => {
           </div>
         </div>
       </div>
+      <OpenStore />
     </div>
   );
 };

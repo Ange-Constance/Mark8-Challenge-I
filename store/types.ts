@@ -15,7 +15,7 @@ export interface ProductsResponse{
 }
 
 export interface Product {
-    id: string | number; 
+    id: string; 
     name: string;
     description: string;
     categoryId: string;
