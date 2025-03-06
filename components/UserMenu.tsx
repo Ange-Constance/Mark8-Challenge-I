@@ -1,10 +1,11 @@
-'use client'
+"use client";
 import Link from "next/link";
 import { FaRegHeart } from "react-icons/fa";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { AiFillShop, AiOutlineUser, AiOutlineDown } from "react-icons/ai";
 import { useState } from "react";
 import Profile from "./Profile";
+import MyCart from "./MyCart";
 
 const UserMenu: React.FC = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -13,19 +14,39 @@ const UserMenu: React.FC = () => {
     setIsPopupVisible(!isPopupVisible);
   };
 
+  const [isPopupVisibl, setIsPopupVisibl] = useState(false);
+
+  const togglePopup2 = () => {
+    setIsPopupVisibl(!isPopupVisibl);
+  };
+
   return (
     <div className="flex items-center gap-4">
       {/* Saved Link */}
       <Link href="/saved" className="flex items-center gap-2">
-        <RiShoppingCartLine size={16} className="cursor-pointer hover:text-gray-900" />
+        <FaRegHeart size={16} className="cursor-pointer hover:text-gray-900" />
         <span className="text-[12px]">Saved</span>
       </Link>
 
       {/* My Cart Link */}
-      <Link href="/store" className="flex items-center gap-2">
-        <FaRegHeart size={16} className="cursor-pointer hover:text-red-500" />
+
+      <button onClick={togglePopup2} className="flex items-center gap-2">
+        {/* <Link href="/store" className="flex items-center gap-2"> */}
+
+        <RiShoppingCartLine
+          size={16}
+          className="cursor-pointer hover:text-red-500"
+        />
+
         <span className="text-[12px]">My Cart</span>
-      </Link>
+        {/* </Link> */}
+      </button>
+
+      {isPopupVisibl && (
+        <div className="absolute top-14 right-0 bg-white rounded-2xl shadow-lg  border-gray-300  z-50">
+          <MyCart />
+        </div>
+      )}
 
       {/* Open A Store Button */}
       <button className="flex items-center justify-between text-black font-bold px-6 py-2 w-[180px] h-[48px] rounded-md border-2 border-gray-300 hover:bg-[#A4C400] transition">
@@ -55,9 +76,7 @@ const UserMenu: React.FC = () => {
       {/* Popup Content */}
       {isPopupVisible && (
         <div className="absolute top-14 right-0 bg-white rounded-2xl shadow-lg  border-gray-300  z-50">
-
-
-        <Profile/>
+          <Profile />
         </div>
       )}
     </div>

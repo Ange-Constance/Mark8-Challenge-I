@@ -1,6 +1,5 @@
 // features/savedProductsSlice.ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
 interface Product {
   id: string | number;
   name: string;
