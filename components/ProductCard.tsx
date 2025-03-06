@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../store/endpoints/cardSlice"; // Adjust the path to your Redux slice
-import { toggleProduct } from "../store/endpoints/savedProductsSlice"; // For saving liked products
-import { FaHeart, FaRegHeart, FaShoppingCart } from "react-icons/fa"; // Icon imports
+import { addToCart } from "../store/endpoints/cardSlice";
+import { toggleProduct } from "../store/endpoints/savedProductsSlice";
+import { FaHeart, FaRegHeart, FaShoppingCart } from "react-icons/fa";
 
 interface Product {
   id: string | number;
@@ -19,30 +20,34 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const dispatch = useDispatch();
   const [isLiked, setIsLiked] = useState(false);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const router = useRouter();
 
-  // Handler to toggle like/unlike the product
   const handleLikeClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsLiked(!isLiked);
-    // Dispatch action to save the liked product to the saved products list
+
     dispatch(toggleProduct(product));
   };
 
-  // Handler to add the product to the cart
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsAddedToCart(!isAddedToCart);
-    // Dispatch addToCart action with quantity set to 1
-    // dispatch(addToCart({ ...product, quantity: 1 }));
+
+    dispatch(addToCart({ ...product, quantity: 1 }));
+  };
+
+  const handleClick = () => {
+    router.push(`/product/${product.id}`);
   };
 
   const imageUrl =
     product.thumbnail?.length > 0 ? product.thumbnail[0] : "/product-bg.png";
 
   return (
-    <div className="flex justify-center items-center w-full">
-      <div className="bg-white rounded-2xl shadow-md overflow-hidden w-full h-[344px] cursor-pointer">
+    <div className=" flex justify-center items-center w-full">
+      <div className="bg-white rounded-2xl shadow-md overflow-hidden w-full h-[344px] cursor-pointer ">
         <div
+          onClick={handleClick}
           className="bg-cover bg-center opacity-80 h-[256px] bg-gray-100 flex items-center justify-center"
           style={{ backgroundImage: `url(${imageUrl})` }}
         ></div>

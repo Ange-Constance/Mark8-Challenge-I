@@ -1,26 +1,32 @@
 "use client";
 import React, { useEffect } from "react";
-import { useRouter } from "next/router";
+import { useParams } from "next/navigation";
 import { useGetRecentProductsIdQuery } from "../store/endpoints/productID-endpoint";
 
 const ProductDetailsPage = () => {
-  const router = useRouter();
-  const { id } = router.query;
+  const params = useParams();
+  const id = params.id as string;
+
+  const { data, error, isLoading } = useGetRecentProductsIdQuery(id);
 
   useEffect(() => {
     console.log("Product ID from URL:", id);
-  }, [id]);
-
-  // Fetch product data based on id
-  const { data, error, isLoading } = useGetRecentProductsIdQuery(id as string);
+    console.log("Fetched Product Data:", data);
+  }, [id, data]);
 
   if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error loading product</div>;
 
-  // Ensure you have a valid product data structure and display the product details
+  if (error) {
+    console.error("Error fetching product:", error);
+    return <div>Error loading product</div>;
+  }
+
   const product = data?.data?.products?.find((product) => product.id === id);
 
-  if (!product) return <div>Product not found</div>;
+  if (!product) {
+    console.log("Product not found in fetched data");
+    return <div>Product not found</div>;
+  }
 
   return (
     <div>

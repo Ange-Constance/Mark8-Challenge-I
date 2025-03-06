@@ -12,17 +12,26 @@ const SavedProducts: React.FC = () => {
   console.log("Saved products:", savedProducts);
 
   return (
-    <div>
-      <h2 className="text-2xl font-semibold mb-4">Saved Products</h2>
-      {savedProducts.length === 0 ? (
-        <p>No products saved yet.</p>
-      ) : (
-        <div className="grid grid-cols-3 gap-4">
-          {savedProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      )}
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-screen-xl mx-auto px-4 py-8">
+        {/* Header Section */}
+        <h2 className="text-3xl font-semibold text-black mb-6">
+          Saved Products
+        </h2>
+
+        {/* Conditional Rendering for Saved Products */}
+        {savedProducts.length === 0 ? (
+          <div className="bg-white p-6 rounded-lg shadow-md text-center">
+            <p className="text-lg text-gray-500">No products saved yet.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {savedProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
