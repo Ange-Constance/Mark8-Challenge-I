@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../store/store"; // Adjust path accordingly
+import { RootState } from "../store/store";
 import { FaTrashAlt } from "react-icons/fa";
 import { updateQuantity, removeFromCart } from "../store/endpoints/cardSlice";
 
@@ -25,7 +25,9 @@ const MyCart = () => {
       <h2 className="text-xl font-semibold mb-4">Your Cart</h2>
 
       {cartItems.length === 0 ? (
-        <p>Your cart is empty!</p>
+        <div className="p-10">
+          <p>Your cart is empty!</p>
+        </div>
       ) : (
         <div>
           <ul>
@@ -79,9 +81,8 @@ const MyCart = () => {
             ))}
           </ul>
 
-          {/* Display total price */}
           <div className="mt-4 text-right">
-            <p className="text-lg font-semibold">
+            <p className="text-lg font-semibold mb-4">
               Total: {totalPrice.toLocaleString()} Rwf
             </p>
           </div>

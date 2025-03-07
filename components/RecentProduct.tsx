@@ -7,7 +7,7 @@ import { useGetRecentProductsQuery } from "@/store/endpoints/product-endpoints";
 import { useGetTopStoresQuery } from "@/store/endpoints/topstore-endpoints";
 import { HiOutlineFilter, HiAdjustments } from "react-icons/hi";
 import { FaRegUser, FaStore, FaSearch } from "react-icons/fa";
-import { AiOutlineDown } from "react-icons/ai";
+import { AiOutlineDown, AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { FiEdit2 } from "react-icons/fi";
 import { OpenStore } from "./OpenStore";
 
@@ -86,7 +86,7 @@ const RecentProduct = () => {
             )}
           </div>
           <button className="flex flex-row justify-center gap-3 px-8 py-2 items-center border border-gray-300 rounded-lg w-[161px] h-[48px] whitespace-nowrap">
-            <AiOutlineDown size={16} className="text-[#D4FA24]" />
+            <AiOutlineLeft size={16} className="text-[#D4FA24]" />
             <span className="font-semibold text-[14px]">Load More</span>
           </button>
         </div>

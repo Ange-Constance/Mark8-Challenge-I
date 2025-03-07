@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { AiOutlineMail, AiFillLock } from "react-icons/ai";
-import { BsArrowRight, BsEye } from "react-icons/bs";
+import { BsArrowRight, BsEye, BsEyeSlash } from "react-icons/bs";
 import { useLoginMutation } from "@/store/endpoints/auth-endpoints";
 
 export default function LoginPage() {
@@ -76,7 +76,7 @@ export default function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
               />
-              <BsEye className="absolute right-3 top-11 text-black cursor-pointer" />
+              <BsEyeSlash className="absolute right-3 top-11 text-black cursor-pointer" />
             </div>
 
             {error && (
