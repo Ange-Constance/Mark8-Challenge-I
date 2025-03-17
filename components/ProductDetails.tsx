@@ -17,7 +17,6 @@ const ProductDetailsPage = () => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading product</div>;
 
-  // Ensure you have a valid product data structure and display the product details
   const product = data?.data?.products?.find((product) => product.id === id);
 
   if (!product) return <div>Product not found</div>;

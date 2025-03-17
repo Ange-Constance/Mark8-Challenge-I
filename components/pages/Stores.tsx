@@ -2,7 +2,7 @@
 import React from "react";
 import StoreItem from "../StoreItem";
 import { useGetRecentStoresQuery } from "../../store/endpoints/storesSlice";
-import { AiOutlineLeft, AiOutlineRight, AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineLeft, AiOutlineSearch } from "react-icons/ai";
 import { FiSettings } from "react-icons/fi";
 import { OpenStore } from "../OpenStore";
 import Navbar from "../Navbar";

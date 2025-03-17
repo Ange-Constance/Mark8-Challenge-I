@@ -4,13 +4,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../store/endpoints/cardSlice";
 import { toggleProduct } from "../store/endpoints/savedProductsSlice";
 import { FaHeart, FaRegHeart, FaShoppingCart } from "react-icons/fa";
-
-interface Product {
-  id: string | number;
-  name: string;
-  unitPrice: number;
-  thumbnail: string[];
-}
+import { Product } from "@/store/types";
 
 interface ProductCardProps {
   product: Product;
@@ -33,7 +27,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     e.preventDefault();
     setIsAddedToCart(!isAddedToCart);
 
-    dispatch(addToCart({ ...product, quantity: 1 }));
+    dispatch(
+      addToCart({
+        ...product,
+        quantity: 1,
+      })
+    );
   };
 
   const handleClick = () => {

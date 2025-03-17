@@ -20,6 +20,7 @@ export interface Product {
   categoryId: string;
   unitPrice: number;
   thumbnail: string[];
+  quantity:number
 }
 
 export interface ShopsResponse {
@@ -35,6 +36,7 @@ export interface Shop {
 }
 
 export interface GenericResponse<T> {
+  products: any[];
   data: T;
   status: number;
   message: string;

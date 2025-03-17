@@ -7,10 +7,10 @@ export const store = configureStore({
   reducer: {
     savedProducts: savedProductsReducer,
     cart: cartReducer,
-    [baseApi.reducerPath]: baseApi.reducer, // Include API if using RTK Query
+    [baseApi.reducerPath]: baseApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(baseApi.middleware), // RTK Query middleware
+    getDefaultMiddleware().concat(baseApi.middleware), 
 });
 
 export type RootState = ReturnType<typeof store.getState>;

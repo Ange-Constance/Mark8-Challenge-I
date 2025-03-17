@@ -1,5 +1,5 @@
 
-import { GenericResponse, LoginRequest, LoginResponse, Product, ProductsResponse } from "../types";
+import { GenericResponse,ProductsResponse } from "../types";
 import { baseApi } from "./base-api";
 
 const productIdEndpoints = baseApi.injectEndpoints({

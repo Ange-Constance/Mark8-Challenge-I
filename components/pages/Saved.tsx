@@ -18,13 +18,11 @@ const SavedProducts: React.FC = () => {
       <Navbar />
       <div className="min-h-screen bg-gray-50">
         <div className="max-w-screen-xl mx-auto px-4 py-8">
-          {/* Header Section */}
           <h2 className="text-3xl font-semibold text-black mb-6">
             Saved Products
           </h2>
 
-          {/* Conditional Rendering for Saved Products */}
-          {savedProducts.length === 0 ? (
+          {!savedProducts.length ? (
             <div className="bg-white p-6 rounded-lg shadow-md text-center">
               <p className="text-lg text-gray-500">No products saved yet.</p>
             </div>

@@ -1,33 +1,18 @@
 "use client";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { AiOutlineMail, AiFillLock } from "react-icons/ai";
-import { BsArrowRight, BsEye, BsEyeSlash } from "react-icons/bs";
-import { useLoginMutation } from "@/store/endpoints/auth-endpoints";
+import { BsArrowRight, BsEyeSlash } from "react-icons/bs";
+import { useLogin } from "./hooks";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [login, { isLoading, error }] = useLoginMutation();
-  const router = useRouter();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const response = await login({ email, password }).unwrap();
-
-      const accessToken = response?.data?.accessToken;
-
-      if (accessToken) {
-        localStorage.setItem("token", accessToken);
-        router.push("/home");
-      } else {
-        console.log("No accessToken in response:", response);
-      }
-    } catch (err) {
-      throw new Error("ERROR");
-    }
-  };
+  const {
+    handleSubmit,
+    email,
+    password,
+    setEmail,
+    setPassword,
+    error,
+    isLoading,
+  } = useLogin();
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 bg-[url('/product-bg.png')] bg-cover bg-center">

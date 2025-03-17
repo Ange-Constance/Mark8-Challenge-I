@@ -15,7 +15,7 @@ const Menu = () => {
       <nav className="flex items-center space-x-6 p-4 text-[12px]">
         {/* Home Link */}
         <Link
-          href="/home"
+          href="/dashboard/home"
           className={`flex items-center space-x-2 ${
             isActive("/") ? "text-[#A4C400]" : "text-gray-600"
           } hover:text-green-500`}
@@ -26,7 +26,7 @@ const Menu = () => {
 
         {/* Store Link */}
         <Link
-          href="/store"
+          href="/dashboard/store"
           className={`flex items-center space-x-2 ${
             isActive("/store") ? "text-[green-500]" : "text-gray-600"
           } hover:text-green-500`}

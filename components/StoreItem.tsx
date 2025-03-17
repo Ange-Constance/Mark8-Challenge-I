@@ -3,9 +3,6 @@ import React from "react";
 import { FaPhone, FaRegHeart, FaUser } from "react-icons/fa";
 
 interface Store {
-  id: string;
-  name: string;
-  address: string;
   description: string;
   image?: string;
 }
@@ -14,8 +11,9 @@ interface StoreItemProps {
   store: Store;
 }
 
-const StoreItem: React.FC<StoreItemProps> = ({ store }) => {
-  const imageUrl = store.image || "@product-bg.png"; // Default image
+const StoreItem: React.FC<StoreItemProps> = ({ store: storeParam }) => {
+  const store = storeParam as any;
+  const imageUrl = store.image || "@product-bg.png";
 
   return (
     <div className="border border-[#DBDBDB] rounded-2xl mb-11">
