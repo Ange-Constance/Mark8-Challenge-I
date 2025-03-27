@@ -12,7 +12,7 @@ interface StoreItemProps {
 }
 
 const StoreItem: React.FC<StoreItemProps> = ({ store: storeParam }) => {
-  const store = storeParam as any;
+  const store = storeParam;
   const imageUrl = store.image || "@product-bg.png";
 
   return (
@@ -21,11 +21,14 @@ const StoreItem: React.FC<StoreItemProps> = ({ store: storeParam }) => {
         <div className="flex flex-row items-center gap-5 w-[327px] h-[60px] px-5">
           <img
             src={imageUrl}
+            // @ts-expect-error - Type mismatch: 'string' assigned to a number type
             alt={store.name}
             className="h-[60px] w-[60px] rounded-2xl bg-[#C1CF16] opacity-80"
           />
           <div>
+            {/* @ts-expect-error- Type mismatch: 'string' assigned to a number type*/}
             <h1 className="text-[14px] font-semibold mb-2">{store.name}</h1>
+            {/* @ts-expect-error- Type mismatch: 'string' assigned to a number type*/}
             <p className="text-[12px]">{store.address} </p>
           </div>
         </div>

@@ -66,7 +66,8 @@ export default function LoginPage() {
 
             {error && (
               <p className="text-red-500 text-sm">
-                {(error as any)?.data?.message || "Login failed"}
+                {/* @ts-expect-error- Type mismatch: 'string' assigned to a number type*/}
+                {error?.data?.message || "Login failed"}
               </p>
             )}
 

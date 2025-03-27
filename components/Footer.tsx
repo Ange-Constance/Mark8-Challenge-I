@@ -11,9 +11,9 @@ const Footer = () => {
         <span className="text-[16px] font-bold text-[#0C0F0F]">Mark8</span>
       </div>
       <div className="text-[16px] text-gray-600">
-        <span>©2024. Mark8</span>
+        <span>©2025. AlgoCart</span>
         <span className="mx-2">By</span>
-        <span>Awesomity Ltd</span>
+        <span>Algo2025</span>
       </div>
 
       <div className="flex items-center gap-4 mt-2 sm:mt-0">
