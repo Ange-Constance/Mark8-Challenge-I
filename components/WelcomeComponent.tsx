@@ -10,7 +10,7 @@ const WelcomeComponent = () => {
         <h1 className="text-2xl font-bold">
           Welcome to <span className="text-[#A4C400]">Mark8</span>
         </h1>
-        <p className="text-gray-400">12,932 Products</p>
+        <p className="text-gray-400">10 Products</p>
       </div>
 
       {/* Search Bar */}
@@ -33,13 +33,13 @@ const WelcomeComponent = () => {
           All
         </button>
         <button className="px-4 py-1 border rounded-full text-sm text-gray-400 border-gray-500 hover:bg-[#A4C400] hover:text-black">
-          Vectors
+          men
         </button>
         <button className="px-4 py-1 border rounded-full text-sm text-gray-400 border-gray-500 hover:bg-[#A4C400] hover:text-black">
-          Icons
+          women
         </button>
         <button className="px-4 py-1 border rounded-full text-sm text-gray-400 border-gray-500 hover:bg-[#A4C400] hover:text-black">
-          Backgrounds
+          kids
         </button>
       </div>
     </div>

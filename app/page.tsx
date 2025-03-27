@@ -1,5 +1,7 @@
 "use client";
-import LandingPage from "@/components/pages/LandingPage";
-export default function Home() {
-  return <LandingPage />;
+import Login from "./login/app";
+import "./globals.css";
+
+export default function HomePage() {
+  return <Login />;
 }
