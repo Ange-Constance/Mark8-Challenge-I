@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const apiURL="https://api.mark8.awesomity.rw/api-docs#/";
+const apiURL="https://api.mark8.awesomity.rw";
 
 export const baseQuery = fetchBaseQuery({
     baseUrl: apiURL,
