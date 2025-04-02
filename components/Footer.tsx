@@ -8,11 +8,11 @@ const Footer = () => {
     <div className="w-100% h-[120px] px-20 flex justify-between items-center bg-[#F4F5F6]">
       <div className="flex items-center gap-2 mb-2 sm:mb-0">
         <Image src="/logo.png" alt="Mark8 Logo" width={40} height={40} />
-        <span className="text-[16px] font-bold text-[#0C0F0F]">AlgoCart</span>
+        <span className="text-[16px] font-bold text-[#0C0F0F]">Mark 8</span>
       </div>
       <div className="text-[16px] text-gray-600">
-        <span>©2025. AlgoCart</span>
-        <span className="mx-2">By</span>
+        <span>by Awesomity</span>
+        <span className="mx-2">by Awesomity</span>
         <span>Algo2025</span>
       </div>
 
