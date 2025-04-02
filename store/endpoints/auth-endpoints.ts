@@ -5,7 +5,7 @@ export const authEndpoints = baseApi.injectEndpoints({
     endpoints:(builder)=>({
         login: builder.mutation<GenericResponse<LoginResponse>, LoginRequest>({
             query:(DTO)=>({
-                url:"/auth/AuthController_login",
+                url:"/auth/login",
                 method:"POST",
                 body: DTO
             })
